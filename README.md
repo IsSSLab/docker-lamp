@@ -10,7 +10,7 @@ This sample also includes PHPMyAdmin.
 1. Start the Docker
 
 ```bash
-docker compose -f compose.yaml up -d
+docker compose up
 ```
 
 2. Access the app via browser
@@ -27,13 +27,13 @@ docker compose -f compose.yaml up -d
 3. To Stop the Docker
 
 ```bash
-docker compose -f compose.yaml down
+docker compose down
 ```
 
 To remove the images used by the service, add the `--rmi` option. The `--rmi` option accepts either `local` or `all`. For more details, please see the documentation by typing `docker compose down --help`.
 
 ```bash
-docker compose -f compose.yaml down --rmi local
+docker compose down --rmi local
 ```
 
 ### MySQL Schema
