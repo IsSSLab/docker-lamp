@@ -30,7 +30,7 @@ docker compose -f compose.yaml up -d
 docker compose -f compose.yaml down
 ```
 
-To remove the images used by the service, add `--rmi` option. The `--rmi` option accepts either of `local` or `all`. For more details, please see the documentation by typing `docker compose down --help`.
+To remove the images used by the service, add the `--rmi` option. The `--rmi` option accepts either `local` or `all`. For more details, please see the documentation by typing `docker compose down --help`.
 
 ```bash
 docker compose -f compose.yaml down --rmi local
