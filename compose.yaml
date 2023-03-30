@@ -13,7 +13,7 @@ services:
       - ./conf/fpm/php.ini:/usr/local/etc/php/conf.d/php.ini
       - ./log/php:/usr/local/log
     env_file:
-      - ./.env/mysql.env
+      - ./mysql.env
   db:
     container_name: mysql_container
     image: mysql:8
@@ -22,13 +22,13 @@ services:
       - ./.db:/var/lib/mysql/
       - ./mysql-schema:/docker-entrypoint-initdb.d
     env_file:
-      - ./.env/mysql.env
+      - ./mysql.env
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
     container_name: phpmyadmin
     restart: unless-stopped
     env_file:
-      - ./.env/mysql.env
+      - ./mysql.env
     environment:
       - PMA_HOST=mysql_container
   nginx:

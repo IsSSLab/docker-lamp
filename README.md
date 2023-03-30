@@ -1,7 +1,7 @@
 
-# The Sample for the Docker with LAMP
+# The Sample for the Docker with PHP+MySQL
 
-This repository provides a starting point for the development of the LAMP environment. The LAMP stands for Linux, Apache, MySQL(or MariaDB), and PHP.
+This repository provides a starting point for the development of the PHP+MySQL environment.
 
 This sample also includes PHPMyAdmin.
 

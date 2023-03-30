@@ -8,5 +8,3 @@ RUN apt-get update && apt-get install -y libicu-dev \
 
 RUN mkdir /var/session
 RUN chown -R www-data /var/session
-
-EXPOSE 80
