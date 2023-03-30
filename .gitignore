@@ -1,0 +1,7 @@
+.db*
+*.env
+ssl
+log
+src/public/vendor/
+src/logs/
+.DS_Store

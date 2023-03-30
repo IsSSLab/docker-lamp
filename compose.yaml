@@ -1,0 +1,44 @@
+version: '3.8'
+services:
+  server:
+    container_name: php
+    restart: unless-stopped
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      target: php
+    volumes:
+      - ./src:/var/www/html/
+      - ./conf/fpm/www.conf:/usr/local/etc/php-fpm.d/www.conf
+      - ./conf/fpm/php.ini:/usr/local/etc/php/conf.d/php.ini
+      - ./log/php:/usr/local/log
+    env_file:
+      - ./.env/mysql.env
+  db:
+    container_name: mysql_container
+    image: mysql:8
+    restart: unless-stopped
+    volumes:
+      - ./.db:/var/lib/mysql/
+      - ./mysql-schema:/docker-entrypoint-initdb.d
+    env_file:
+      - ./.env/mysql.env
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: phpmyadmin
+    restart: unless-stopped
+    env_file:
+      - ./.env/mysql.env
+    environment:
+      - PMA_HOST=mysql_container
+  nginx:
+    image: nginx
+    container_name: nginx
+    restart: unless-stopped
+    ports :
+     - "80:80"
+     - "8080:81"
+    volumes:
+      - ./conf/nginx.conf:/etc/nginx/conf.d
+      - ./src:/usr/share/nginx/html
+      - ./log/nginx:/var/log/nginx
