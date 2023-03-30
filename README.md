@@ -36,6 +36,12 @@ To remove the images used by the service, add the `--rmi` option. The `--rmi` op
 docker compose -f compose.yaml down --rmi local
 ```
 
+### MySQL Schema
+
+The sample mysql schema is located under the `mysql-schema` directory.
+This directory is mounted on the directory `/docker-entrypoint-initdb.d` of the Docker container.
+The `*.sql` files under this directory will be used to initialize the MySQL database.
+
 ### Composer
 
 To use composer,
