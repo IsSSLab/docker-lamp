@@ -16,9 +16,9 @@
         $statement->bindValue(':workerID', $workerID);
         $statement->execute();
         // -- We can write the above syntax with a more simple way.
-        //    The reason why I use prepare() and execute() is to prevent SQL injection attacks.
+        //    The reason why I use prepare() is to prevent SQL injection attacks.
 
-        $_SESSION["serial"] = $pdo->lastInsertId('serial');
+        $_SESSION["serial"] = $pdo->lastInsertId();
 
         $pdo = null; // -- Close the connection. But, it will be closed automatically when the script ends.
       } catch(PDOException $e) {
